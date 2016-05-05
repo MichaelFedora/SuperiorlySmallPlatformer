@@ -1,0 +1,161 @@
+{
+    "airSymbol": ".",
+    "spawnId": 0,
+    "mappings": [
+        {
+            "id": "wood",
+            "symbol": "w",
+            "collide": true
+        },
+        {
+            "id": "stone",
+            "symbol": "s",
+            "collide": true
+        },
+        {
+            "id": "torch",
+            "symbol": "t",
+            "collide": false
+        }
+    ],
+    "rooms": [
+        {
+            "doors": [
+                {
+                    "id": "door",
+                    "symbol": "1",
+                    "nextRoom": 1,
+                    "spawnId": 0
+                }
+            ],
+            "spawns": [
+                {
+                    "symbol": "x",
+                    "id": 0
+                },
+				{
+                    "symbol": "1",
+                    "id": 1
+                }
+            ],
+            "background": [
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss"
+            ],
+            "level": [
+                "wwwwwwwwwwwwwwww",
+                "w.....t........w",
+                "w........1.....w",
+                "w.......www....w",
+                "w..............w",
+                "w.www.......t..w",
+                "w.t............w",
+                "w......x.......w",
+                "wwwwwwwwwwwwwwww"
+            ]
+        },
+		{
+            "doors": [
+                {
+                    "id": "door",
+                    "symbol": "0",
+                    "nextRoom": 0,
+                    "spawnId": 1
+                },
+				{
+                    "id": "door",
+                    "symbol": "2",
+                    "nextRoom": 2,
+                    "spawnId": 1
+                }
+            ],
+            "spawns": [
+                {
+                    "symbol": "0",
+                    "id": 0
+                },
+				{
+					"symbol": "2",
+					"id": 2
+				}
+            ],
+            "background": [
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss"
+            ],
+            "level": [
+                "wwwwwwwwwwwwwwww",
+                "w..............w",
+                "w........0..t..w",
+                "w....t..www....w",
+                "w......w.......w",
+                "w..t..w.....t..w",
+                "w..............w",
+                "w............2.w",
+                "wwwwwwwwwwwwwwww"
+            ]
+        },
+		{
+            "doors": [
+                {
+                    "id": "door",
+                    "symbol": "1",
+                    "nextRoom": 1,
+                    "spawnId": 2
+                },
+				{
+                    "id": "door",
+                    "symbol": "0",
+                    "nextRoom": 0,
+                    "spawnId": 0
+                }
+            ],
+            "spawns": [
+                {
+                    "symbol": "1",
+                    "id": 1
+                },
+				{
+					"symbol": "0",
+					"id": 0
+				}
+            ],
+            "background": [
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss",
+                "ssssssssssssssss"
+            ],
+            "level": [
+                "wwwwwwwwwwwwwwww",
+                "w..............w",
+                "w..............w",
+                "w..............w",
+                "w......0t......w",
+                "w.....wwww.....w",
+                "w..............w",
+                "w........t..1..w",
+                "wwwwwwwwwwwwwwww"
+            ]
+        }
+    ]
+}

@@ -251,3 +251,8 @@ Temp
 ProjectSettings
 Assets/*
 !Assets/scripts
+
+!Assets/levels
+Assets/levels/*
+!Assets/levels/test.json
+!Assets/levels/default_pretty.json
