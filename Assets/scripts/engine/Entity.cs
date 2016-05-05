@@ -18,12 +18,12 @@ public class Entity : MonoBehaviour {
 
     public Dictionary<string, UnityEvent<object[]>> Events = new Dictionary<string, UnityEvent<object[]>>();
 
-    public bool CollFloor;// { get; protected set; }
-    public bool CollWallLeft;// { get; protected set; }
-    public bool CollWallRight;// { get; protected set; }
-    public bool CollCieling;// { get; protected set; }
+    public bool CollFloor { get; protected set; }
+    public bool CollWallLeft { get; protected set; }
+    public bool CollWallRight { get; protected set; }
+    public bool CollCieling { get; protected set; }
 
-    public bool CollEntity;// { get; protected set; }
+    public bool CollEntity { get; protected set; }
 
     public Entity() {
 
@@ -56,7 +56,9 @@ public class Entity : MonoBehaviour {
         Vector2 distToEdges = new Vector2(collSize.x / 2.0f, collSize.y / 2.0f);
 
         // NOTE: So this is slightly old logic, recycled from earlier projects
-        // but I noticed that it worked better by INSTEAD of having the
+        // but I noticed that it worked better by INSTEAD of having the offsets SUBTRACTED
+        // i.e. creating interior boxes, I made them ADD, to create "exterior" boxes.
+        // Probably because my collision box is different, idk.
 
         Vector2[] points = new Vector2[6] {
             new Vector2( distToEdges.x,                         distToEdges.y + CollThreshold),
@@ -70,35 +72,35 @@ public class Entity : MonoBehaviour {
         Vector2 tl = new Vector2(0, 0);
         Vector2 br = new Vector2(0, 0);
 
-        /// Collision: Floor
+        // Collision: Floor
 
         tl = points[3] + (Vector2)this.transform.position;
         br = points[5] + (Vector2)this.transform.position;
 
         this.CollFloor = Physics2D.OverlapArea(tl, br, mask);
 
-        ///Collision: Wall - Left
+        //Collision: Wall - Left
 
         tl = points[2] + (Vector2)this.transform.position;
         br = points[4] + (Vector2)this.transform.position;
 
         this.CollWallLeft = Physics2D.OverlapArea(tl, br, mask);
-
-        /// Collision: Wall - Right
+    
+        // Collision: Wall - Right
 
         tl = points[1] + (Vector2)this.transform.position;
         br = points[5] + (Vector2)this.transform.position;
 
         this.CollWallRight = Physics2D.OverlapArea(tl, br, mask);
 
-        /// Collision: Cieling
+        // Collision: Cieling
 
         tl = points[2] + (Vector2)this.transform.position;
         br = points[0] + (Vector2)this.transform.position;
 
         this.CollCieling = Physics2D.OverlapArea(tl, br, mask);
 
-        /// Collision: Level Entity (check whole area)
+        // Collision: Level Entity (check whole area)
         // TODO: Neccesity of "LevelEntity" check
         /*mask = 1 << LayerMask.NameToLayer("LevelEntity");
 		
@@ -107,7 +109,7 @@ public class Entity : MonoBehaviour {
 		
 		this.LvlEnt = Physics2D.OverlapArea(tl, br, mask);*/
 
-        /// Physics: Simulate Drag
+        // Physics: Simulate Drag
 
         Vector2 dc = new Vector2(DragCoeff.x * 0.01f, DragCoeff.y * 0.01f);
         Rigidbody2D rb = this.GetComponent<Rigidbody2D>();
